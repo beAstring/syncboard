@@ -92,3 +92,53 @@ export async function getUserProjects() {
     return [];
   }
 }
+
+export async function joinProject(projectId: string) {
+  const { userId } = await auth();
+
+  if (!userId) {
+    return { success: false, error: "UnAuthorized" };
+  }
+
+  try {
+    const project = await prisma.project.findUnique({
+      where: {
+        id: projectId,
+      },
+    });
+
+    if (!project) {
+      return { success: false, error: "Project Not Found" };
+    }
+
+    const existingUser = await prisma.projectMember.findUnique({
+      where: {
+        projectId_userId: {
+          projectId,
+          userId,
+        },
+      },
+    });
+
+    if (!existingUser) {
+      return {
+        success: false,
+        error: "You are already member of this project",
+      };
+    }
+
+    await prisma.projectMember.create({
+      data: {
+        projectId,
+        userId,
+        role: "MEMBER",
+      },
+    });
+
+    revalidatePath("/dashboard");
+    return { success: true };
+  } catch (error) {
+    console.error("Join project error : ", error);
+    return { success: false, error: "error while joining project" };
+  }
+}
