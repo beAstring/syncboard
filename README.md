@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SyncBoard 📋
 
-## Getting Started
+SyncBoard is a modern, high-performance project management application designed to streamline team collaboration and issue tracking. Built with a focus on speed and developer experience, it provides a highly responsive Kanban interface for managing tasks, tracking deadlines, and coordinating team efforts.
 
-First, run the development server:
+## 🚀 Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This project is built using modern full-stack web technologies to ensure type safety, scalability, and a flawless user experience.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Framework:** [Next.js](https://nextjs.org/) (App Router & Server Actions)
+- **Language:** TypeScript
+- **Database:** PostgreSQL (Hosted on [Neon](https://neon.tech/))
+- **ORM:** [Prisma](https://www.prisma.io/)
+- **Authentication:** [Clerk](https://clerk.com/)
+- **Styling:** Tailwind CSS
+- **UI Components:** [Shadcn UI](https://ui.shadcn.com/)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✨ Core Features (MVP)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+SyncBoard implements a complete, end-to-end project management workflow.
 
-## Learn More
+### 🔐 Authentication & Security
 
-To learn more about Next.js, take a look at the following resources:
+- **Secure Authentication:** Passwordless and OAuth login flows powered by Clerk.
+- **Database Synchronization:** Automated user profile syncing between Clerk and the Neon database.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🏢 Workspace Management
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Project Boards:** Create dedicated project spaces with specific titles, descriptions, and overarching deadlines.
+- **Invite System:** Seamlessly onboard team members by generating unique, secure invite links for specific projects.
+- **Dashboard Overview:** A centralized hub to view all owned and joined projects at a glance, including quick-status task counts.
 
-## Deploy on Vercel
+### 🎯 Issue Tracking & Kanban
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Interactive Kanban Board:** Drag-and-drop interface to move tasks fluidly between columns (To Do, In Progress, Done).
+- **Comprehensive Task Details:** Create tasks with titles, descriptions, status tracking, priority levels, and individual deadlines.
+- **Task Assignment:** Assign specific tickets to team members within a project.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 💬 Collaboration
+
+- **Issue Comments:** Dedicated discussion threads on every individual task.
+- **In-App Notifications:** Real-time alerts when a user is assigned to a new task or mentioned in a comment thread.
+
+## 🌟 Advanced Features
+
+Beyond standard issue tracking, SyncBoard includes several advanced features that elevate the user experience:
+
+- **Rich Text Formatting:** Issue descriptions support rich text editing (bolding, lists, code blocks) via integrated editor components.
+- **Dynamic Board Filtering:** Instantly declutter the Kanban board by filtering tasks assigned only to you.
+- **Role-Based Access Control (RBAC):** Distinct `ADMIN` and `MEMBER` roles. Project creators maintain administrative control over project deletion and member management, while members collaborate on tasks.
+
+## 💻 Local Development Setup
+
