@@ -24,6 +24,7 @@ model Project {
   id          String   @id @default(uuid())
   name        String
   description String?
+  endDate     DateTime? 
   creatorId   String
   members     ProjectMember[]
   tasks       Task[]
